@@ -31,6 +31,8 @@ public:
      */
     virtual void dump(std::ostream& os) const;
 
+    virtual void cartShow() const = 0;
+
     /**
      * Accessors and mutators
      */

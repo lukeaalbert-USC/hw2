@@ -1,5 +1,6 @@
 #include <sstream>
 #include <iomanip>
+#include <set>
 #include "product.h"
 
 using namespace std;
@@ -52,6 +53,3 @@ void Product::dump(std::ostream& os) const
 {
     os << category_ << "\n" << name_ << "\n" << price_ << "\n" << qty_ << endl;
 }
-
-
-

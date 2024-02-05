@@ -24,8 +24,6 @@ class Movie: public Product
     */
     virtual void dump(std::ostream& os) const;
 
-    virtual void cartShow() const;
-
   private:
     std::string Genre_;
     std::string Rating_;

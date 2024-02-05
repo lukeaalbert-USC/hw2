@@ -62,7 +62,12 @@ std::string Clothing::displayString() const
   toRet.append(" Brand: ");
   toRet.append(Brand_);
   toRet.append("\n");
-  toRet.append(std::to_string(price_));
+
+  stringstream forPrice;
+  forPrice << std::fixed << std::setprecision(2) << price_;
+  std::string newPrice = forPrice.str();
+  toRet.append(newPrice);
+
   toRet.append(" ");
   toRet.append(std::to_string(qty_));
   toRet.append(" left.");
@@ -75,25 +80,4 @@ std::string Clothing::displayString() const
 void Clothing::dump(std::ostream& os) const
 {
     os << category_ << "\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << Size_ << "\n" << Brand_ << endl;
-}
-
-void Clothing::cartShow() const
-{
-  std::cout << "name: ";
-  std::cout << name_;
-  std::cout << ", \n";
-
-  std::cout << "info: ";
-  std::cout << "Size: ";
-  std::cout <<Size_;
-  std::cout << " Brand: ";
-  std::cout << Brand_;
-  std::cout << ", \n";
-
-
-  std::cout << "stock: ";
-  std::cout << qty_;
-  std::cout << ", \n";
-  std::cout << "price: ";
-  std::cout << price_;
 }

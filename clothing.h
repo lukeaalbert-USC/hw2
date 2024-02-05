@@ -24,8 +24,6 @@ class Clothing: public Product
     */
     virtual void dump(std::ostream& os) const;
 
-    virtual void cartShow() const;
-
   private:
     std::string Size_;
     std::string Brand_;

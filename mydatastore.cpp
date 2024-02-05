@@ -146,17 +146,21 @@ void MyDataStore::AddToCart(std::string& username, int hitIndex)
 void MyDataStore::ViewCart(std::string& username)
 {
   User* currUser = checkUsernameValidity(username);
+
   if (currUser == nullptr)
   {
-    std::cout << "Invalid request" << endl;
+    std::cout << "Invalid username" << endl;
     return;
   }
-
+  // std::cout << "Curr User " << currUser -> getName() << std::endl;
   std::vector<Product*> userCart = carts[currUser];
 
+  // std::cout << "Curr User" << currUser << std::endl;
   for (std::size_t i = 0; i < userCart.size(); ++i)
   {
-    userCart[i] -> cartShow();
+    std::cout << "\n";
+    std::cout << "Item " << i + 1 << "\n";
+    std::cout << userCart[i] -> displayString();
   }
 }
 
@@ -165,7 +169,7 @@ void MyDataStore::BuyCart(std::string& username)
   User* currUser = checkUsernameValidity(username);
   if (currUser == nullptr)
   {
-    std::cout << "Invalid request" << endl;
+    std::cout << "Invalid username" << endl;
     return;
   }
 

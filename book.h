@@ -24,8 +24,6 @@ class Book: public Product
     */
     void dump(std::ostream& os) const;
 
-    virtual void cartShow() const;
-
   private:
     std::string ISBN_;
     std::string Author_;

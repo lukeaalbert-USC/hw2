@@ -61,7 +61,12 @@ std::string Movie::displayString() const
   toRet.append(" Rating: ");
   toRet.append(Rating_);
   toRet.append("\n");
-  toRet.append(std::to_string(price_));
+  
+  stringstream forPrice;
+  forPrice << std::fixed << std::setprecision(2) << price_;
+  std::string newPrice = forPrice.str();
+  toRet.append(newPrice);
+
   toRet.append(" ");
   toRet.append(std::to_string(qty_));
   toRet.append(" left.");
@@ -74,25 +79,4 @@ std::string Movie::displayString() const
 void Movie::dump(std::ostream& os) const
 {
     os << category_ << "\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << Genre_ << "\n" << Rating_ << endl;
-}
-
-void Movie::cartShow() const
-{
-  std::cout << "name: ";
-  std::cout << name_;
-  std::cout << ", \n";
-
-  std::cout << "info: ";
-  std::cout << "Genre: ";
-  std::cout << Genre_;
-  std::cout << " Rating: ";
-  std::cout << Rating_;
-  std::cout << ", \n";
-
-
-  std::cout << "stock: ";
-  std::cout << qty_;
-  std::cout << ", \n";
-  std::cout << "price: ";
-  std::cout << price_;
 }

@@ -74,7 +74,12 @@ std::string Book::displayString() const
   toRet.append(" ISBN: ");
   toRet.append(ISBN_);
   toRet.append("\n");
-  toRet.append(std::to_string(price_));
+  
+  stringstream forPrice;
+  forPrice << std::fixed << std::setprecision(2) << price_;
+  std::string newPrice = forPrice.str();
+  toRet.append(newPrice);
+
   toRet.append(" ");
   toRet.append(std::to_string(qty_));
   toRet.append(" left.");
@@ -86,25 +91,4 @@ std::string Book::displayString() const
 void Book::dump(std::ostream& os) const
 {
     os << category_ << "\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << ISBN_ << "\n" << Author_ << endl;
-}
-
-void Book::cartShow() const
-{
-  std::cout << "name: ";
-  std::cout << name_;
-  std::cout << ", \n";
-
-  std::cout << "info: ";
-  std::cout << "Author: ";
-  std::cout << Author_;
-  std::cout << " ISBN: ";
-  std::cout << ISBN_;
-  std::cout << ", \n";
-
-
-  std::cout << "stock: ";
-  std::cout << qty_;
-  std::cout << ", \n";
-  std::cout << "price: ";
-  std::cout << price_;
 }
